@@ -7,6 +7,7 @@ import type { Product } from '@/types/types'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { useInView } from 'framer-motion'
+import { featuredProducts } from '@/data/product'
 
 const FeaturedProducts: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null)
@@ -61,7 +62,11 @@ const FeaturedProducts: React.FC = () => {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          
+          {featuredProducts.map((product: Product) => (
+            <motion.div key={product.id} variants={itemVariants}>
+              <ProductCard product={product} />
+            </motion.div>
+          ))}
         </motion.div>
       </div>
     </section>
