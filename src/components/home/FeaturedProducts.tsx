@@ -3,7 +3,6 @@
 import React, { useRef } from 'react'
 import { ChevronRight } from 'lucide-react'
 import ProductCard from '../product/ProductCard'
-import { featuredProducts } from '@/data/product'
 import type { Product } from '@/types/types'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
@@ -62,11 +61,7 @@ const FeaturedProducts: React.FC = () => {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          {featuredProducts.map((product: Product) => (
-            <motion.div key={product.id} variants={itemVariants}>
-              <ProductCard product={product} />
-            </motion.div>
-          ))}
+          
         </motion.div>
       </div>
     </section>
